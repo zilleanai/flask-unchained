@@ -7,7 +7,7 @@ RUN useradd --user-group --create-home --home-dir /flask --shell /bin/false flas
 
 RUN apt-get update && apt-get install -y build-essential libxml2-dev libxslt-dev libffi-dev libpq-dev git
 
-RUN pip install --upgrade pip && pip install --no-cache-dir -e git+https://github.com/briancappello/flask-unchained.git@${VERSION}#egg=flask-unchained
+RUN pip install --upgrade pip && pip install --no-cache-dir -e git+https://github.com/zilleanai/flask-unchained.git#egg=flask-unchained
 
 WORKDIR /flask/src
 
