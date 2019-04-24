@@ -79,14 +79,16 @@ The architecture is inspired by [Symfony](https://symfony.com/), which is enterp
 ```bash
 # (create a virtual environment)
 pip install flask-unchained[dev]
-flask new project <your-project-folder-name>
+flask new project <your-project-folder-name> --prompt
 
 # (answer the questions and `cd` into the new directory)
 pip install -r requirements-dev.txt
 flask run
 ```
 
-**NOTE:** If you enabled the SQLAlchemy Bundle, then you may need to run migrations before running the development server:
+**NOTE:** If you enabled the SQLAlchemy Bundle, then you need to install [alembic](https://github.com/sqlalchemy/alembic) version 1.0.9 or greater.
+
+You may also need to run migrations before starting the development server:
 
 ```bash
 flask db init
