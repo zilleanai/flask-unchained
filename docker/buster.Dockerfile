@@ -1,12 +1,18 @@
-FROM python:3.6-alpine3.8
+FROM debian:buster-slim
 ARG VERSION=v0.7.8
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apk add --no-cache shadow
 RUN useradd --user-group --create-home --home-dir /flask --shell /bin/false flask
 
-RUN apk add --no-cache linux-headers make gcc musl-dev libxml2-dev libxslt-dev libffi-dev postgresql-dev git
+RUN apt-get update && apt-get install -y build-essential python3-dev python3-pip libxml2-dev libxslt-dev libffi-dev libpq-dev git
+
+RUN cd /usr/local/bin \
+	&& ln -s idle3 idle \
+	&& ln -s pydoc3 pydoc \
+	&& ln -s python3 python \
+	&& ln -s $(which pip3) pip \
+	&& ln -s python3-config python-config
 
 RUN pip install --upgrade pip && pip install --no-cache-dir -e git+https://github.com/briancappello/flask-unchained.git@${VERSION}#egg=flask-unchained
 
