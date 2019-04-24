@@ -14,7 +14,7 @@ RUN cd /usr/local/bin \
 	&& ln -s $(which pip3) pip \
 	&& ln -s python3-config python-config
 
-RUN pip install --upgrade pip && pip install --no-cache-dir -e git+https://github.com/briancappello/flask-unchained.git@${VERSION}#egg=flask-unchained
+RUN pip install --upgrade pip && pip install --no-cache-dir -e git+https://github.com/zilleanai/flask-unchained.git#egg=flask-unchained
 
 WORKDIR /flask/src
 
