@@ -17,6 +17,7 @@ class OAuthService(BaseService):
         elif provider.name == 'github':
             data = provider.get('/user').data
             return data['email'], {}
+        
         elif provider.name == 'gitlab':
             data = provider.get('user').data
             return data['email'], {}
