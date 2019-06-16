@@ -1,5 +1,5 @@
 FROM debian:buster-slim
-ARG VERSION=v0.7.8
+ARG VERSION=v0.7.9
 
 ENV PYTHONUNBUFFERED 1
 
